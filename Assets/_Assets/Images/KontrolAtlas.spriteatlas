@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: KontrolAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 1
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 318c444e03c3f2743a06a82aeac0e3bf, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300002, guid: 53c36572d8fdace49a477006b123042c, type: 3}
+  - {fileID: 21300000, guid: 53c36572d8fdace49a477006b123042c, type: 3}
+  - {fileID: 21300000, guid: 34142437c76f277469965242bf9cf41a, type: 3}
+  - {fileID: 21300000, guid: ec391528b718f0a4b8f8785318ef3af8, type: 3}
+  - {fileID: 21300002, guid: ec391528b718f0a4b8f8785318ef3af8, type: 3}
+  - {fileID: 21300000, guid: c6fc00cac64efac499ba7fb83f8a3311, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - pedals_1
+  - pedals_0
+  - steeringWheel 1
+  - UpDownButtons_0
+  - UpDownButtons_1
+  - playBtn
+  m_Tag: KontrolAtlas
+  m_IsVariant: 0
