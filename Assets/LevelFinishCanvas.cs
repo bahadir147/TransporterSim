@@ -45,11 +45,16 @@ public class LevelFinishCanvas : MonoBehaviour
 
     public void NextLevel()
     {
-        SceneManager.LoadScene("Level" + LevelManager.Instance.currentLevel + 1);
+        SceneManager.LoadScene("Level" + (LevelManager.Instance.currentLevel + 1));
     }
 
     public void GoHomeButton()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void RefreshLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

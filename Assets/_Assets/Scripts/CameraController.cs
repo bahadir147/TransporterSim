@@ -10,6 +10,8 @@ public class CameraController : MonoBehaviour
 
     private int currentIndex;
     private GameObject currentCamera;
+
+    public GameObject FreeHandCam;
     // Use this for initialization
     void Start()
     {
@@ -49,5 +51,13 @@ public class CameraController : MonoBehaviour
                 item.SetActive(true);
             else item.SetActive(false);
         }
+    }
+
+
+    public void ChangeFreeCamera()
+    {
+        currentCamera = FreeHandCam;
+        currentCamera.SetActive(true);
+        ClearOthersCamera();
     }
 }

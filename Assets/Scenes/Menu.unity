@@ -12931,6 +12931,10 @@ MonoBehaviour:
   Levels:
   - LevelName: 1
     status: 0
+  - LevelName: 2
+    status: -1
+  - LevelName: 3
+    status: -1
   currentLevel: 0
   currentTimer: 0
 --- !u!4 &1493616591

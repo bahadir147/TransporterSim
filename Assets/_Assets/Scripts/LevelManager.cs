@@ -99,6 +99,11 @@ public class LevelManager : MonoBehaviour
     public void LevelFinish(LevelStatus status, float money)
     {
         SaveLevel(currentLevel, status);
+
+        //Sonraki leveli aç
+        if (GetLevelStatus(currentLevel + 1) == LevelStatus.locked)
+            SaveLevel(currentLevel + 1, LevelStatus.unlock);
+
         SaveMoney(money);
 
         if (coroutine != null)
