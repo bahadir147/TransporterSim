@@ -1,0 +1,13 @@
+<dependencies>
+  <androidPackages>
+    <androidPackage spec='com.appodeal.ads.sdk.networks:appodeal:2.6.0.1'/>
+    <androidPackage spec='com.appodeal.ads.sdk.networks:appodealx:2.6.0.1'/>
+    <androidPackage spec='com.appodeal.ads.sdk.networks:admob:2.6.0.1'/>
+    <androidPackage spec='com.appodeal.ads.sdk.networks:unity_ads:2.6.0.2'/>
+  </androidPackages>
+  <iosPods>
+    <iosPod name='APDAppodealAdExchangeAdapter' version='2.6.3.1' minTargetSdk='9.0'/>
+    <iosPod name='APDGoogleAdMobAdapter' version='2.6.3.1' minTargetSdk='9.0'/>
+    <iosPod name='APDUnityAdapter' version='2.6.3.1' minTargetSdk='9.0'/>
+  </iosPods>
+</dependencies>

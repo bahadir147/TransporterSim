@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Skybox
   m_Shader: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _SUNDISK_HIGH_QUALITY
@@ -67,7 +68,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Exposure: 0.01
+    - _Exposure: 0.13
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -78,8 +79,8 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SunDisk: 2
-    - _SunSize: 0
-    - _SunSizeConvergence: 1
+    - _SunSize: 0.344
+    - _SunSizeConvergence: 3.75
     - _Surface: 0
     - _UVSec: 0
     - _WorkflowMode: 1

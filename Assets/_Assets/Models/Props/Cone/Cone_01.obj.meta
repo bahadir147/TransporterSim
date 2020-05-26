@@ -50,11 +50,12 @@ ModelImporter:
     globalScale: 0.02
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
-    swapUVChannels: 0
+    swapUVChannels: 1
     generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
@@ -63,10 +64,10 @@ ModelImporter:
     preserveHierarchy: 0
     indexFormat: 0
     secondaryUVAngleDistortion: 8
-    secondaryUVAreaDistortion: 15.000001
+    secondaryUVAreaDistortion: 15
     secondaryUVHardAngle: 88
-    secondaryUVPackMargin: 4
-    useFileScale: 0
+    secondaryUVPackMargin: 64
+    useFileScale: 1
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
@@ -74,6 +75,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

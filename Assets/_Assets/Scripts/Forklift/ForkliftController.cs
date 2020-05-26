@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst;
 using UnityEngine;
 
+[BurstCompile]
 public class ForkliftController : MonoBehaviour
 {
 
@@ -16,6 +18,8 @@ public class ForkliftController : MonoBehaviour
     public AudioSource liftEngineSource;
     private float liftVolume = 0;
 
+    public Transform liftRayPos;
+    public float liftRayDistance = 1;
 
     private void Start()
     {
@@ -31,6 +35,17 @@ public class ForkliftController : MonoBehaviour
     private void FixedUpdate()
     {
         liftAnim.speed = liftMoveSpeed;
+
+        RaycastHit hit;
+        bool liftHitUp = false;
+        if (Physics.Raycast(liftRayPos.position, transform.TransformDirection(Vector3.up) * -1, out hit, liftRayDistance))
+        {
+            Debug.DrawRay(liftRayPos.position, transform.TransformDirection(Vector3.up) * hit.distance * -1, Color.yellow);
+            liftHitUp = true;
+        }
+
+
+
 
         if (LiftModel.transform.localPosition.y >= maxLiftPos)
         {
@@ -52,7 +67,7 @@ public class ForkliftController : MonoBehaviour
         {
             LiftUp();
         }
-        else if (Input.GetKey(KeyCode.F) || InputManager.Instance.ForkliftLiftControl() == -1)
+        else if ((Input.GetKey(KeyCode.F) && !liftHitUp) || (InputManager.Instance.ForkliftLiftControl() == -1 && !liftHitUp))
         {
             LiftDown();
         }
@@ -94,7 +109,6 @@ public class ForkliftController : MonoBehaviour
     }
     public void LiftDown()
     {
-
         currentLiftPos = LiftModel.transform.localPosition.y;
         if (currentLiftPos <= minLiftPos) return;
 

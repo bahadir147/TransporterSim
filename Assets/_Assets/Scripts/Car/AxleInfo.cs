@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-public class AxleInfo
+[SerializeField]
+public class AxleInfo 
 {
     public WheelCollider leftWheelCollider;
     public WheelCollider rightWheelCollider;

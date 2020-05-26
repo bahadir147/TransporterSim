@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using Unity.Burst;
+using UnityEngine;
 
 [ExecuteInEditMode]
+[BurstCompile]
 public class EasySuspension : MonoBehaviour
 {
 	[Range(0.1f, 20f)]

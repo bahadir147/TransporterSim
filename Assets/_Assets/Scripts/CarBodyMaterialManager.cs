@@ -6,7 +6,7 @@ public class CarBodyMaterialManager : MonoBehaviour
 {
 
     public List<MeshRenderer> Bodys;
-
+    public List<Material> mats;
 
     public void Start()
     {
@@ -16,7 +16,7 @@ public class CarBodyMaterialManager : MonoBehaviour
     public void ChangeMaterial()
     {
         int currentMate = PlayerPrefs.GetInt("CarMat", 0);
-        Material mat = Resources.Load("ForkliftMats/Mat" + currentMate) as Material;
+        Material mat = mats[currentMate];
 
         if (mat == null) return;
 

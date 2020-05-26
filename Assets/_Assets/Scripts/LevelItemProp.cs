@@ -1,4 +1,5 @@
 ﻿using Assets._Assets.Scripts.Utility;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,6 +13,7 @@ public class LevelItemProp : MonoBehaviour
     public TextMeshProUGUI levelNameText;
     public GameObject playText;
     public GameObject LockObj;
+    public GameObject comingSoonObject;
 
     public Button PlayButton;
 
@@ -61,10 +63,27 @@ public class LevelItemProp : MonoBehaviour
         PlayButton.onClick.AddListener(() => PlayLevel());
     }
 
+    internal void Init(string item)
+    {
+        if (item == "ComingSoon")
+        {
+
+            levelNameText.text = "";
+
+            comingSoonObject.SetActive(true);
+            LockObj.SetActive(false);
+            playText.transform.parent.gameObject.SetActive(false);
+            playText.SetActive(false);
+            starts[0].transform.parent.parent.gameObject.SetActive(false);
+
+        }
+
+    }
+
     public void PlayLevel()
     {
         if (_item.status != LevelStatus.locked)
-            SceneManager.LoadScene("Level" + _item.LevelName);
+            CustomSceneManager.Instance.LoadScene("Level" + _item.LevelName);
     }
 
 

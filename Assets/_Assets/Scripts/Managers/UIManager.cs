@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Burst;
 using UnityEngine;
-
+[BurstCompile]
 public class UIManager : MonoBehaviour
 {
-
 
     #region SINGLETON PATTERN
     static UIManager _instance;
@@ -25,6 +25,8 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI speedText;
     public Animator gearUIAnim;
+    public TextMeshProUGUI levelNameText;
+    public TextMeshProUGUI crashCountText;
 
     public void ChangeSpeedText(float speed)
     {

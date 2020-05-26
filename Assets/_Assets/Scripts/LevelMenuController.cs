@@ -34,6 +34,19 @@ public class LevelMenuController : MonoBehaviour
             if (prop != null)
                 levelItem.GetComponent<LevelItemProp>().Init(item);
         }
+
+        AddCoingSoonItem();
+    }
+
+    private void AddCoingSoonItem()
+    {
+        GameObject levelItem = Instantiate(levelitemPrefab, LevelContent.transform);
+        levelItem.name = "CommingSoonLevel";
+
+
+        LevelItemProp prop = levelItem.GetComponent<LevelItemProp>();
+        if (prop != null)
+            levelItem.GetComponent<LevelItemProp>().Init("ComingSoon");
     }
 }
 
@@ -42,4 +55,5 @@ public class LevelItem
 {
     public int LevelName;
     public LevelStatus status;
+    public int maxCrashCount = 5;
 }

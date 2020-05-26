@@ -9,11 +9,11 @@ public class PauseController : MonoBehaviour
 
     public void GoHomeButton()
     {
-        SceneManager.LoadScene(0);
+        CustomSceneManager.Instance.LoadScene("Menu");
     }
 
     public void RefreshLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        CustomSceneManager.Instance.LoadScene("Level" + (LevelManager.Instance.currentLevel));
     }
 }

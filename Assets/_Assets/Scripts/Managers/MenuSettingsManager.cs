@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.LightweightPipeline;
 using UnityEngine.UI;
 
 public class MenuSettingsManager : MonoBehaviour
@@ -18,7 +17,6 @@ public class MenuSettingsManager : MonoBehaviour
     public Toggle shadowsToggle;
     public Toggle vsyncToggle;
 
-    public LightweightPipelineAsset pipe;
 
     private void Awake()
     {
@@ -48,11 +46,11 @@ public class MenuSettingsManager : MonoBehaviour
         shadowsToggle.isOn = currentShadows;
         if (currentShadows)
         {
-            pipe.supportsDirectionalShadows = true;
+            //pipe.supportsMainLightShadows = true;
         }
         else
         {
-            pipe.supportsDirectionalShadows = false;
+            //pipe.supportsMainLightShadows = false;
         }
     }
 
@@ -77,11 +75,11 @@ public class MenuSettingsManager : MonoBehaviour
         shadowsToggle.isOn = currentShadows;
         if (isValue)
         {
-            pipe.supportsDirectionalShadows = true;
+            //pipe.supportsMainLightShadows = true;
         }
         else
         {
-            pipe.supportsDirectionalShadows = false;
+            //pipe.supportsMainLightShadows = false;
         }
     }
 

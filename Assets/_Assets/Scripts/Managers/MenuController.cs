@@ -1,15 +1,20 @@
-﻿using System;
+﻿using AppodealAds.Unity.Api;
+using AppodealAds.Unity.Common;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Burst;
 using UnityEngine;
-
+[BurstCompile]
 public class MenuController : MonoBehaviour
 {
     public Animator CompanyInputAnim;
     public TMP_InputField CompanyInput;
     public TextMeshProUGUI CompanyInfoText;
     public TextMeshProUGUI CompanyMoneyText;
+
+
 
     private string CompanyName;
     private void Start()
@@ -44,6 +49,28 @@ public class MenuController : MonoBehaviour
     {
         CompanyInput.text = NameList.getRandomName();
         CompanyInput.ForceLabelUpdate();
+    }
+
+    public void AddMoney()
+    {
+        try
+        {
+            ReklamManager.instance.ShowRewareded(onRewardedVideoFinished);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError(ex.Message);
+            LevelManager.Instance.SaveMoney(2000);
+
+        }
+
+    }
+
+    public void onRewardedVideoFinished()
+    {
+        print("Appodeal. Video reward finishh...");
+        LevelManager.Instance.SaveMoney(2000);
+        CompanyMoneyText.text = PlayerPrefs.GetFloat("Money", 0).ToString();
     }
 }
 

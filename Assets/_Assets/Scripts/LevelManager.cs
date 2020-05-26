@@ -3,9 +3,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Burst;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+[BurstCompile]
 public class LevelManager : MonoBehaviour
 {
     #region SINGLETON PATTERN
@@ -38,6 +39,13 @@ public class LevelManager : MonoBehaviour
 
     void Awake()
     {
+
+#if UNITY_EDITOR
+        foreach (var item in Levels)
+        {
+            SaveLevel(Levels.IndexOf(item), LevelStatus.Perfect);
+        }
+#endif
 
         if (_instance != null && _instance != this)
         {
@@ -77,11 +85,21 @@ public class LevelManager : MonoBehaviour
             var TimerObj = GameObject.Find("TimerText");
             if (TimerObj != null)
                 timerText = TimerObj.GetComponent<TextMeshProUGUI>();
+
+            var UIManager = FindObjectOfType<UIManager>();
+            if (UIManager != null)
+            {
+                var currentLevelItem = Levels[currentLevel - 1];
+                UIManager.crashCountText.text = currentLevelItem.maxCrashCount.ToString();
+                UIManager.levelNameText.text = "Level " + currentLevel;
+            }
+
         }
         catch (System.Exception)
         {
             currentLevel = -1;
         }
+
     }
 
     IEnumerator LevelMethod()
@@ -94,6 +112,23 @@ public class LevelManager : MonoBehaviour
                 timerText.text = Mathf.Floor((currentTimer / 60)).ToString("00") + ":" + (currentTimer % 60).ToString("00");
             yield return null;
         }
+    }
+
+    public void CrashForklift()
+    {
+        var UIManager = FindObjectOfType<UIManager>();
+        if (UIManager != null)
+        {
+            var nextCrashCount = int.Parse(UIManager.crashCountText.text) - 1;
+            if (nextCrashCount <= 0)
+                LevelCrashed();
+            UIManager.crashCountText.text = nextCrashCount.ToString();
+        }
+    }
+
+    private void LevelCrashed()
+    {
+        Resources.FindObjectsOfTypeAll<LevelFinishCanvas>()[0].OpenFinishPanel(true);
     }
 
     public void LevelFinish(LevelStatus status, float money)
@@ -110,7 +145,6 @@ public class LevelManager : MonoBehaviour
             StopCoroutine(coroutine);
 
         Resources.FindObjectsOfTypeAll<LevelFinishCanvas>()[0].OpenFinishPanel(status, money);
-
     }
 
     void OnEnable()
